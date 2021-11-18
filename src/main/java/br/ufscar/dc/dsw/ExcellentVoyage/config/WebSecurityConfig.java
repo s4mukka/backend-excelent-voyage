@@ -40,24 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override
 	protected void configure(HttpSecurity http) throws Exception {
-				http.authorizeRequests()
-				.antMatchers("/", "/error", "/login/**", "/index", "/styles/**", "/image/**", "/webjars/**").permitAll()
-                .antMatchers("/cadastro/**", "/cliente/salvar", "/agencia/salvar", "/pacote/salvar").permitAll()
-				.antMatchers("/cliente/home").hasRole("cliente")//precisa mudar
-                .antMatchers("/agencia/home", "/pacote/salvar", "/pacote/adicionar").hasRole("agencia")//pecisa mudar
-				.antMatchers("/admin/**", "/agencia/delete/**", "/cliente/delete/**").hasRole("admin")
-				.antMatchers("/agencia/editar", "/cliente/editar").hasRole("admin")
-				.anyRequest().authenticated()
-			.and()
-				.formLogin()
-				.loginPage("/login")
-				.defaultSuccessUrl("/", true)
-				.permitAll()
-			.and()
-				.logout()
-				.logoutUrl("/logout")
-				.logoutSuccessUrl("/")
-				.permitAll();
+				http.csrf().disable().authorizeRequests()
+        .anyRequest().authenticated()
+        .and().formLogin().loginPage("/login").permitAll()
+        .and().logout().logoutSuccessUrl("/").permitAll();
 	}
-
 }
