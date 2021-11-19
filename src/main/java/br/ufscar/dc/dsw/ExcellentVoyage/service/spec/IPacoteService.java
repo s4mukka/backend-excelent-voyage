@@ -14,4 +14,6 @@ public interface IPacoteService {
   List<PacoteTuristico> listarPelaAgencia(Agencia agencia, Boolean vigente);
 
   List<PacoteTuristico> buscarPorFiltro(String destino, String nomeAgencia, Date dataPartida);
+
+  List<PacoteTuristico> buscarTodos();
 }

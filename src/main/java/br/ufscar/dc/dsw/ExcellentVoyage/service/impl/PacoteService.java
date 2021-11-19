@@ -84,4 +84,10 @@ public class PacoteService implements IPacoteService {
 
     return listaPacotes;
   }
+
+  public List<PacoteTuristico> buscarTodos(){
+    List<PacoteTuristico> listaPacoteTodos = pacoteDAO.findAll();
+
+    return listaPacoteTodos;
+  }
 }
