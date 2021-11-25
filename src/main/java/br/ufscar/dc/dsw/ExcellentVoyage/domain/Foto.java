@@ -7,6 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.Id;
 
 @Entity
@@ -17,6 +23,7 @@ public class Foto {
 
     @ManyToOne
     @JoinColumn(name = "idPacote")
+    @JsonIgnore
     private PacoteTuristico pacoteTuristico;
 
     @Column(nullable = false)
@@ -37,7 +44,7 @@ public class Foto {
         this.id = id;
     }
 
-    public PacoteTuristico getIdPacoteTuristico() {
+    public PacoteTuristico getPacoteTuristico() {
         return this.pacoteTuristico;
     }
 

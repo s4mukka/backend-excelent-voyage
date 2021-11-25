@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,17 +26,15 @@ import br.ufscar.dc.dsw.ExcellentVoyage.domain.Foto;
 
 @CrossOrigin
 @RestController
-public class PacoteTuristicoRestController {
+@RequestMapping("/pacotes")
+public class PacoteTuristicoController {
 
     @Autowired
     private IPacoteService service;
 
-    @GetMapping(path = "/pacotes")
+    @GetMapping("")
     public ResponseEntity<List<PacoteTuristico>> lista() {
         List<PacoteTuristico> lista = service.buscarTodos();
-        if(lista.isEmpty()){
-            return ResponseEntity.notFound().build();
-        }
 
         return ResponseEntity.ok(lista);
     }

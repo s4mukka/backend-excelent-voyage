@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "Usuario")
@@ -36,6 +38,7 @@ public class Usuario implements Serializable {
     @NotBlank(message = "{NotBlank.user.senha}")
     @Size(min = 4, max = 60)
     @Column(name = "senha", nullable = false, length = 60)
+    @JsonIgnore
     private String senha;
 
     @Size(max = 60)

@@ -1,6 +1,10 @@
 package br.ufscar.dc.dsw.ExcellentVoyage.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,9 +27,6 @@ import br.ufscar.dc.dsw.ExcellentVoyage.service.spec.IClienteService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @CrossOrigin
 @RestController
@@ -45,7 +46,7 @@ public class ClienteController {
 		}
 	}
 
-  private void parse(Cliente cliente, JSONObject json) {
+  private void parse(Cliente cliente, JSONObject json) throws ParseException {
 		
 		Object id = json.get("id");
 		if (id != null) {
@@ -56,14 +57,16 @@ public class ClienteController {
 			}
 		}
 
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 		cliente.setNome((String) json.get("nome"));
 		cliente.setEmail((String) json.get("email"));
     cliente.setSenha(encoder.encode((String) json.get("senha")));
     cliente.setCpf((String) json.get("cpf"));
     cliente.setTipo("ROLE_cliente");
     cliente.setTelefone((String) json.get("telefone"));
-	cliente.setSexo((String) json.get("sexo"));
-
+	  cliente.setSexo((String) json.get("sexo"));
+    cliente.setDataNascimento(sdf.parse((String) json.get("dataNascimento")));
 	}
 
   @PostMapping("")
@@ -73,6 +76,7 @@ public class ClienteController {
 			if (isJSONValid(json.toString())) {
 				Cliente cliente = new Cliente();
 				parse(cliente, json);
+        System.out.println("dataNascimento: " + cliente.getDataNascimento());
 				service.salvar(cliente);
 				return ResponseEntity.ok(cliente);
 			} else {
