@@ -7,20 +7,83 @@ O banco de dados é criado e populado apenas com o usuario administrador que pos
 
 Para executar a aplicação basta rodar: `mvn spring-boot:run`
 
-R1: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+#### REST API -- CRUD de clientes
+```
+POST http://localhost:8080/clientes:
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
 
-R2: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+GET http://localhost:8080/clientes
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
 
-R3: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+GET http://localhost:8080/clientes/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
 
-R4: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+PUT http://localhost:8080/clientes/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
 
-R5: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+DELETE http://localhost:8080/clientes/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+```
 
-R6: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+#### REST API -- CRUD de agências de turismo
+```
+POST http://localhost:8080/agencias:
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
 
-R7: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+GET http://localhost:8080/agencias
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
 
-R8: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+GET http://localhost:8080/agencias/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
 
-R9: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+PUT http://localhost:8080/agencias/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+
+DELETE http://localhost:8080/agencias/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+```
+
+REST API -- Retorna a lista de pacotes turísticos
+```
+GET http://localhost:8080/pacotes
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+```
+
+REST API -- Retorna a lista de pacotes turísticos do cliente de id = {id}
+```
+GET http://localhost:8080/pacotes/clientes/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+```
+
+REST API -- Cria um novo pacote turístico na agência de id = {id}
+```
+POST http://localhost:8080/pacotes/agencias/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+```
+
+REST API -- Retorna a lista de pacotes turísticos da agência de id = {id}
+```
+GET http://localhost:8080/pacotes/agencias/{id}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+```
+
+REST API -- Retorna a lista de pacotes turístivos cujo destino = {nome}
+```
+GET http://localhost:8080/pacotes/destinos/{nome}
+(X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Divisão na implementação da funcionalidade: Samuel (33%), Gabriel (33%) e Leonardo (33%)
+```
