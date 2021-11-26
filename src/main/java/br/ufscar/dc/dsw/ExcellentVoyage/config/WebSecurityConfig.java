@@ -45,6 +45,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
       .antMatchers("/agencias/{\\d+}").permitAll()
       .antMatchers("/clientes").permitAll()
       .antMatchers("/clientes/{\\d+}").permitAll()
+      .antMatchers("/pacotes/clientes/{\\d+}").permitAll()
+      .antMatchers("/pacotes/agencias/{\\d+}").permitAll()
+      .antMatchers("/pacotes/destinos/{\\w+}").permitAll()
       .anyRequest().authenticated()
       .and().formLogin().loginPage("/login").permitAll()
       .and().logout().logoutSuccessUrl("/").permitAll();
