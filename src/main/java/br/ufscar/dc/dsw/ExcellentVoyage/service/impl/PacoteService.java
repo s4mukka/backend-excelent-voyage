@@ -85,6 +85,11 @@ public class PacoteService implements IPacoteService {
     return listaPacotes;
   }
 
+  public List<PacoteTuristico> buscarPorDestino(String destino){
+    List<PacoteTuristico> lista = pacoteDAO.findAllByDestinoCidadeOrDestinoEstadoOrDestinoPaisContains(destino, destino, destino);
+
+    return lista;
+  }
   public List<PacoteTuristico> buscarTodos(){
     List<PacoteTuristico> listaPacoteTodos = pacoteDAO.findAll();
 
