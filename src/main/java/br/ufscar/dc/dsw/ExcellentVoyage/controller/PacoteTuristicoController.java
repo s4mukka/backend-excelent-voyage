@@ -38,5 +38,4 @@ public class PacoteTuristicoController {
 
         return ResponseEntity.ok(lista);
     }
-    
 }
