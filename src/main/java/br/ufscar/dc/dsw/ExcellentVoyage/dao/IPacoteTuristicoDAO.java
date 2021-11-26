@@ -3,7 +3,6 @@ package br.ufscar.dc.dsw.ExcellentVoyage.dao;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import br.ufscar.dc.dsw.ExcellentVoyage.domain.Agencia;
