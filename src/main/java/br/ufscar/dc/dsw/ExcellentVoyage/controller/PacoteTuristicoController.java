@@ -92,7 +92,7 @@ public class PacoteTuristicoController {
     @GetMapping("/agencias/{id}")
     public ResponseEntity<List<PacoteTuristico>> showByAgencia(@PathVariable("id") Long id) {
         Agencia agencia = agenciaService.buscarPorId(id);
-        List<PacoteTuristico> listaPacotes= service.listarPelaAgencia(agencia, true);
+        List<PacoteTuristico> listaPacotes= service.listarPelaAgencia(agencia, false);
 
         if (agencia == null) {
             return ResponseEntity.notFound().build();
